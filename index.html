@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Full Stack Developer &amp; Creative Designer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" id="favicon" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.35/bundled/lenis.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <!-- Coming Soon modal, toast, responsive — paste responsive.css content at end of style.css
+       OR keep as a separate file and link it here -->
+  <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ═══ COMING SOON MODAL ═══ -->
+  <div class="cs-overlay" id="csOverlay" onclick="closeComingSoon()"></div>
+  <div class="cs-modal" id="csModal">
+    <div class="cs-glow"></div>
+    <div class="cs-inner">
+      <div class="cs-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+      <p class="cs-tag">// Status</p>
+      <h3 class="cs-title">Coming Soon</h3>
+      <p class="cs-body">This project is currently under construction. Stay tuned — something great is on its way.</p>
+      <button class="cs-close" onclick="closeComingSoon()">Got it →</button>
+    </div>
+  </div>
+
+  <!--═══ NAV ═══-->
+  <nav id="mainNav">
+    <a class="nav-brand" href="#home">
+      <div class="brand-dot"></div>
+      <span class="brand-name">dev<em>&amp;</em>design</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">
+      <i class="fa-regular fa-paper-plane"></i> Hire Me
+    </a>
+  </nav>
+
+  <!--═══ HERO ═══-->
+  <section class="hero" id="home">
+
+    <!-- Panel 1: Full-Stack Dev -->
+    <div class="letter-panel panel-1">
+      <div class="panel-grid"></div>
+      <div class="panel-letter">C</div>
+      <div class="panel-reveal">
+        <span class="reveal-eyebrow">01 — Code</span>
+        <h2 class="reveal-title">Full Stack<br /><em>Developer.</em></h2>
+        <p class="reveal-body">From architecture to deployment — React, Node.js, PostgreSQL, Python and beyond. Every
+          line intentional.</p>
+        <div class="code-block">
+          <span class="kw">const</span> <span class="fn">dev</span> = {<br />
+          &nbsp;&nbsp;<span class="kw">stack</span>: <span class="str">"React · Node · PostgreSQL"</span>,<br />
+          &nbsp;&nbsp;<span class="kw">approach</span>: <span class="str">"clean &amp; scalable"</span>,<br />
+          &nbsp;&nbsp;<span class="kw">builds</span>: <span class="str">Infinity</span> <span class="cm">//
+            ongoing</span><br />
+          };
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Graphic / Brand Designer — uses my.jpeg as background -->
+    <div class="letter-panel panel-2">
+      <div class="panel-grid"></div>
+      <div class="portrait-wrap">
+        <img src="my.jpeg" class="portrait-img" alt="Adil Hassan" />
+        <div class="portrait-grad"></div>
+      </div>
+      <div class="panel-letter">R</div>
+      <div class="panel-reveal">
+        <span class="reveal-eyebrow">02 — Brand</span>
+        <h2 class="reveal-title">Graphic &amp;<br /><em>Brand Design.</em></h2>
+        <p class="reveal-body">Visual identities, apparel graphics, editorial campaigns — crafted to resonate and
+          endure.</p>
+        <div class="design-ring">
+          <div class="design-ring-dot"></div>
+          <span class="design-ring-center">Design</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Open Source / Community -->
+    <div class="letter-panel panel-3">
+      <div class="panel-grid"></div>
+      <div class="panel-letter">E</div>
+      <div class="panel-reveal">
+        <span class="reveal-eyebrow">03 — Open Source</span>
+        <h2 class="reveal-title">Build.<br />Share.<br />Grow.</h2>
+        <p class="reveal-body">Passionate about contributing back. Every project is a chance to lift the community.</p>
+        <div class="orbit-ring">
+          <div class="orbit-dot"></div>
+          <span class="orbit-center">OSS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4: UI/UX -->
+    <div class="letter-panel panel-4">
+      <div class="panel-grid"></div>
+      <div class="panel-letter">W</div>
+      <div class="panel-reveal">
+        <span class="reveal-eyebrow">04 — UI/UX</span>
+        <h2 class="reveal-title">Think.<br />Design.<br />Ship.</h2>
+        <p class="reveal-body">User-centred interfaces that look stunning and feel effortless. Design systems,
+          prototypes, production.</p>
+        <div class="stats-stack">
+          <div>
+            <div class="stat-row"><span class="stat-n">70+</span><span class="stat-l">Projects Shipped</span></div>
+            <div class="stat-bar">
+              <div class="stat-fill w95"></div>
+            </div>
+          </div>
+          <div>
+            <div class="stat-row"><span class="stat-n">20+</span><span class="stat-l">Technologies</span></div>
+            <div class="stat-bar">
+              <div class="stat-fill w88"></div>
+            </div>
+          </div>
+          <div>
+            <div class="stat-row"><span class="stat-n">40+</span><span class="stat-l">Happy Clients</span></div>
+            <div class="stat-bar">
+              <div class="stat-fill w82"></div>
+            </div>
+          </div>
+          <div>
+            <div class="stat-row"><span class="stat-n">5yr</span><span class="stat-l">Experience</span></div>
+            <div class="stat-bar">
+              <div class="stat-fill w76"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint"><span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!--═══ ABOUT ═══-->
+  <section class="about-section" id="about">
+    <div class="about-left">
+      <!-- <p class="sec-tag gold">About Me</p> -->
+      <h2>I code.<br />I design.<br /><em>I do both.</em></h2>
+      <p class="about-subtitle">Full Stack Developer &amp; Creative Designer</p>
+      <p>A rare hybrid — I write production-grade code <em>and</em> craft compelling visual identities. Whether it's a
+        React + Node.js platform, a brand system, or a polished UI that bridges the two — I build it end-to-end. No
+        handoffs. No silos. Just great work.</p>
+      <div class="role-badges">
+        <span class="role-badge badge-dev"><i class="fa-brands fa-react"></i> Full Stack Dev</span>
+        <span class="role-badge badge-des"><i class="fa-solid fa-palette"></i> Graphic Designer</span>
+        <span class="role-badge badge-ui"><i class="fa-solid fa-vector-square"></i> UI/UX Designer</span>
+      </div>
+      <div class="about-stats">
+        <div>
+          <div class="a-num">70<span>+</span></div>
+          <div class="a-lab">Projects</div>
+        </div>
+        <div>
+          <div class="a-num">40<span>+</span></div>
+          <div class="a-lab">Clients</div>
+        </div>
+        <div>
+          <div class="a-num">5<span>yr</span></div>
+          <div class="a-lab">Experience</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="terminal">
+        <div class="t-bar">
+          <div class="t-dot r"></div>
+          <div class="t-dot y"></div>
+          <div class="t-dot g"></div>
+          <span class="t-title">~/profile — zsh</span>
+        </div>
+        <div class="t-body">
+          <div><span class="tp">❯ </span><span class="tc">whoami</span></div>
+          <div><span class="to">full-stack-dev + creative-designer</span></div><br />
+          <div><span class="tp">❯ </span><span class="tc">cat roles.json</span></div>
+          <div>{</div>
+          <div>&nbsp;&nbsp;<span class="tk">"dev"</span>: <span
+              class="tv">["React","Node.js","PostgreSQL","Python"]</span>,</div>
+          <div>&nbsp;&nbsp;<span class="tk">"design"</span>: <span
+              class="tv">["Branding","Typography","Apparel"]</span>,</div>
+          <div>&nbsp;&nbsp;<span class="tk">"ui_ux"</span>: <span class="tv">["Figma","Prototyping","Design
+              Sys"]</span>,</div>
+          <div>&nbsp;&nbsp;<span class="tk">"superpower"</span>: <span class="tgold">"Code meets aesthetics"</span>
+          </div>
+          <div>}</div><br />
+          <div><span class="tp">❯ </span><span class="tc">git log --oneline -3</span></div>
+          <div><span class="to">a3f9c12 feat: shipped LearnForge LMS v2</span></div>
+          <div><span class="to">b7e1d44 design: brand identity — Void Collective</span></div>
+          <div><span class="to">c2a8f91 ui: shipped redesigned onboarding flow</span></div><br />
+          <div><span class="tp">❯ </span><span class="t-blink"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--═══ SKILLS ═══-->
+  <section class="skills-section" id="skills">
+    <div class="skills-header">
+      <div>
+        <!-- <p class="sec-tag cyan">Tech &amp; Design Stack</p> -->
+        <h2>Every tool.<br /><span class="dev-span">Every stack.</span><br /><span class="des-span">Every medium.</span>
+        </h2>
+      </div>
+      <p>Mastery across code and craft — from browser pixels to server infrastructure, and from brand systems to print
+        production.</p>
+    </div>
+    <div class="skill-tabs">
+      <button class="skill-tab dev active" onclick="switchSkillTab('front',this)">Frontend Dev</button>
+      <button class="skill-tab back" onclick="switchSkillTab('back',this)">Backend Dev</button>
+      <button class="skill-tab db" onclick="switchSkillTab('db',this)">Databases</button>
+      <button class="skill-tab des" onclick="switchSkillTab('des',this)">Graphic Design</button>
+      <button class="skill-tab ui" onclick="switchSkillTab('ui',this)">UI / UX</button>
+    </div>
+
+    <!-- Frontend -->
+    <div class="skill-panel tab-dev active" id="sp-front">
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-html5"></i></div>
+        <div class="chip-name">HTML5</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-css3-alt"></i></div>
+        <div class="chip-name">CSS3</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-js"></i></div>
+        <div class="chip-name">JavaScript</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-react"></i></div>
+        <div class="chip-name">React.jsx</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-n"></i></div>
+        <div class="chip-name">Next.js</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-t"></i></div>
+        <div class="chip-name">TypeScript</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-wind"></i></div>
+        <div class="chip-name">Tailwind CSS</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div class="chip-name">GSAP</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-vuejs"></i></div>
+        <div class="chip-name">Vue.js</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-angular"></i></div>
+        <div class="chip-name">Angular</div>
+        <div class="chip-level">Proficient</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+        <div class="chip-name">React Native</div>
+        <div class="chip-level">Proficient</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="chip-name">Webpack/Vite</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+    </div>
+
+    <!-- Backend -->
+    <div class="skill-panel tab-back" id="sp-back">
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-node-js"></i></div>
+        <div class="chip-name">Node.js</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-server"></i></div>
+        <div class="chip-name">Express.js</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-python"></i></div>
+        <div class="chip-name">Python</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-flask"></i></div>
+        <div class="chip-name">Flask</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-php"></i></div>
+        <div class="chip-name">PHP</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-code"></i></div>
+        <div class="chip-name">C++</div>
+        <div class="chip-level">Proficient</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div class="chip-name">REST APIs</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+        <div class="chip-name">GraphQL</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-lock"></i></div>
+        <div class="chip-name">JWT / OAuth</div>
+        <div class="chip-level">Expert</div>
+      </div>
+    </div>
+
+    <!-- Databases -->
+    <div class="skill-panel tab-db" id="sp-db">
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-database"></i></div>
+        <div class="chip-name">PostgreSQL</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-leaf"></i></div>
+        <div class="chip-name">MongoDB</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-table"></i></div>
+        <div class="chip-name">MySQL</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-fire"></i></div>
+        <div class="chip-name">Firebase</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div class="chip-name">Redis</div>
+        <div class="chip-level">Proficient</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <div class="chip-name">Prisma ORM</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-cloud"></i></div>
+        <div class="chip-name">Supabase</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="chip-name">Elasticsearch</div>
+        <div class="chip-level">Proficient</div>
+      </div>
+    </div>
+
+    <!-- Graphic Design -->
+    <div class="skill-panel tab-des" id="sp-des">
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-palette"></i></div>
+        <div class="chip-name">Brand Identity</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-shirt"></i></div>
+        <div class="chip-name">Apparel Graphics</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-font"></i></div>
+        <div class="chip-name">Typography</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-vector-square"></i></div>
+        <div class="chip-name">Illustration</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-print"></i></div>
+        <div class="chip-name">Print Design</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div class="chip-name">Art Direction</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-brands fa-figma"></i></div>
+        <div class="chip-name">Figma</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-a" style="font-size:18px"></i></div>
+        <div class="chip-name">Illustrator</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-p" style="font-size:18px"></i></div>
+        <div class="chip-name">Photoshop</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-id-card"></i></div>
+        <div class="chip-name">InDesign</div>
+        <div class="chip-level">Proficient</div>
+      </div>
+    </div>
+
+    <!-- UI/UX -->
+    <div class="skill-panel tab-ui" id="sp-ui">
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-object-group"></i></div>
+        <div class="chip-name">UI Design</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-sitemap"></i></div>
+        <div class="chip-name">UX Research</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+        <div class="chip-name">Prototyping</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="chip-name">Design Systems</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-arrows-to-eye"></i></div>
+        <div class="chip-name">Accessibility</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="chip-name">Wireframing</div>
+        <div class="chip-level">Expert</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <div class="chip-name">User Testing</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+      <div class="skill-chip">
+        <div class="chip-icon"><i class="fa-solid fa-swatchbook"></i></div>
+        <div class="chip-name">Interaction Design</div>
+        <div class="chip-level">Advanced</div>
+      </div>
+    </div>
+  </section>
+
+  <!--═══ WORK ═══-->
+  <section class="work-section" id="work">
+    <div class="work-header">
+      <!-- <p class="sec-tag gold">Selected Work</p> -->
+      <h2>Built with code.<br />Crafted with <span class="g">design.</span></h2>
+    </div>
+    <div class="work-filters">
+      <button class="wf-btn active" data-filter="all">All Work</button>
+      <button class="wf-btn" data-filter="dev">Development</button>
+      <button class="wf-btn" data-filter="des">Design</button>
+      <button class="wf-btn" data-filter="ui">UI / UX</button>
+      <button class="wf-btn" data-filter="full">Full Stack + Design</button>
+    </div>
+    <div class="work-grid" id="workGrid">
+
+      <!-- 01 — LearnForge (Full Stack + Design) -->
+      <div class="work-card featured" data-type="full">
+        <span class="card-type type-full"><i class="fa-solid fa-layer-group"></i> Full Stack + Design</span>
+        <!-- <div class="card-num">// 01 — Featured</div> -->
+        <div class="card-title">LearnForge LMS</div>
+        <p class="card-desc">A full-stack Learning Management System with a completely custom UI/UX — role-based access
+          for Admin, Teacher &amp; Student, real-time updates, curriculum builder, and a design system built from
+          scratch in Figma before a single line of code was written.</p>
+        <div class="card-tags">
+          <span class="ctag">React 18</span><span class="ctag">TypeScript</span><span class="ctag">Node.js</span>
+          <span class="ctag">PostgreSQL</span><span class="ctag">Prisma</span><span class="ctag">Tailwind</span>
+          <span class="ctag">Figma Design System</span><span class="ctag">Vercel</span>
+        </div>
+        <div class="card-links">
+          <a href="#" class="card-link cs-trigger"><i class="fa-brands fa-github"></i> Source</a>
+          <a href="#" class="card-link cs-trigger"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          <a href="#" class="card-link cs-trigger"><i class="fa-brands fa-figma"></i> Figma File</a>
+        </div>
+        <div class="card-bg-n">01</div>
+      </div>
+
+      <!-- 02 — Void Collective (Design) -->
+      <div class="work-card" data-type="des">
+        <span class="card-type type-des"><i class="fa-solid fa-palette"></i> Brand Identity</span>
+        <!-- <div class="card-num">// 02</div> -->
+        <div class="card-title">Void Collective</div>
+        <p class="card-desc">Complete brand identity for a streetwear label — logo system, colour palette, apparel
+          graphics, and lookbook. A study in controlled minimalism and bold contrast.</p>
+        <div class="card-tags">
+          <span class="ctag">Brand Identity</span><span class="ctag">Apparel Graphics</span>
+          <span class="ctag">Illustrator</span><span class="ctag">Print</span>
+        </div>
+        <div class="card-links">
+          <a href="https://www.behance.net/adilhassan19" target="_blank" rel="noopener" class="card-link"><i
+              class="fa-brands fa-behance"></i> View Project</a>
+        </div>
+        <div class="card-bg-n">02</div>
+      </div>
+
+      <!-- 03 — SkyeVaultDB (Dev) -->
+      <div class="work-card" data-type="dev">
+        <span class="card-type type-dev"><i class="fa-solid fa-code"></i> Development</span>
+        <!-- <div class="card-num">// 03</div> -->
+        <div class="card-title">SkyeVaultDB</div>
+        <p class="card-desc">A distributed document database engine in C++17 — MongoDB-inspired with sharding,
+          replication, and a React admin console featuring a cyberpunk dark UI theme.</p>
+        <div class="card-tags">
+          <span class="ctag">C++17</span><span class="ctag">CMake</span><span class="ctag">React</span>
+          <span class="ctag">Distributed Systems</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/adil-12-hassan" target="_blank" rel="noopener" class="card-link"><i
+              class="fa-brands fa-github"></i> Source</a>
+        </div>
+        <div class="card-bg-n">03</div>
+      </div>
+
+      <!-- 04 — CodeWithHassan (UI / UX + Dev) -->
+      <div class="work-card" data-type="ui">
+        <span class="card-type type-ui"><i class="fa-solid fa-vector-square"></i> UI / UX + Dev</span>
+        <!-- <div class="card-num">// 04</div> -->
+        <div class="card-title">CodeWithHassan</div>
+        <p class="card-desc">Developer education platform with a fully animated login system, particle canvas effects,
+          and polished onboarding — designed in Figma and implemented end-to-end.</p>
+        <div class="card-tags">
+          <span class="ctag">React</span><span class="ctag">Node.js</span><span class="ctag">Canvas API</span>
+          <span class="ctag">JWT</span><span class="ctag">Figma</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/adil-12-hassan" target="_blank" rel="noopener" class="card-link"><i
+              class="fa-brands fa-github"></i> Source</a>
+          <a href="#" class="card-link cs-trigger"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
+        </div>
+        <div class="card-bg-n">04</div>
+      </div>
+
+      <!-- 05 — VOID Audio Suite (Full Stack + Design) — real live links -->
+      <div class="work-card" data-type="full">
+        <span class="card-type type-full"><i class="fa-solid fa-layer-group"></i> Full Stack + Design</span>
+        <!-- <div class="card-num">// 05</div> -->
+        <div class="card-title">VOID Audio Studio</div>
+        <p class="card-desc">Three browser-based audio instruments (Stylophone, Guitar, Vocal Pitcher) built with Web
+          Audio API — each with a custom brand identity, CRT-aesthetic UI, and standalone deployable build.</p>
+        <div class="card-tags">
+          <span class="ctag">Web Audio API</span><span class="ctag">Vanilla JS</span>
+          <span class="ctag">Brand Design</span><span class="ctag">CSS FX</span>
+        </div>
+        <div class="card-links">
+          <a href="https://stylophone-studio.vercel.app/" target="_blank" rel="noopener" class="card-link"><i
+              class="fa-solid fa-arrow-up-right-from-square"></i> Stylophone</a>
+          <a href="https://guitar-studio-beta.vercel.app/" target="_blank" rel="noopener" class="card-link"><i
+              class="fa-solid fa-arrow-up-right-from-square"></i> Guitar</a>
+          <a href="https://vocal-void.vercel.app/" target="_blank" rel="noopener" class="card-link"><i
+              class="fa-solid fa-arrow-up-right-from-square"></i> Vocal</a>
+        </div>
+        <div class="card-bg-n">05</div>
+      </div>
+
+      <!-- 06 — Editorial Campaign (Design) -->
+      <div class="work-card" data-type="des">
+        <span class="card-type type-des"><i class="fa-solid fa-palette"></i> Graphic Design</span>
+        <!-- <div class="card-num">// 06</div> -->
+        <div class="card-title">Night Series Editorial</div>
+        <p class="card-desc">A typographic editorial campaign for a seasonal apparel drop — combining custom lettering,
+          photography art direction, and a cohesive print &amp; digital rollout.</p>
+        <div class="card-tags">
+          <span class="ctag">Typography</span><span class="ctag">Art Direction</span>
+          <span class="ctag">Photoshop</span><span class="ctag">Print</span>
+        </div>
+        <div class="card-links">
+          <a href="https://www.behance.net/adilhassan19" target="_blank" rel="noopener" class="card-link"><i
+              class="fa-brands fa-behance"></i> View Project</a>
+        </div>
+        <div class="card-bg-n">06</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!--═══ CONTACT ═══-->
+  <section class="contact-section" id="contact">
+    <div class="contact-bg-text">Hire</div>
+    <div class="contact-inner">
+      <div class="contact-left">
+        <!-- <p class="sec-tag gold">Get In Touch</p> -->
+        <h2>Let's build<br />something<br /><em>legendary.</em></h2>
+        <p>Whether you need a production-ready web platform, a striking brand identity, or a seamless UI/UX — I bring
+          all three disciplines to every project. Let's talk.</p>
+        <!-- Social icons — real links, no Dribbble/Figma -->
+        <div class="contact-socials">
+          <a href="https://github.com/adil-12-hassan" target="_blank" rel="noopener" title="GitHub"><i
+              class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/adil-hassan-a08115325" target="_blank" rel="noopener" title="LinkedIn"><i
+              class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.behance.net/adilhassan19" target="_blank" rel="noopener" title="Behance"><i
+              class="fa-brands fa-behance"></i></a>
+          <a href="https://www.instagram.com/adilhassan107/" target="_blank" rel="noopener" title="Instagram"><i
+              class="fa-brands fa-instagram"></i></a>
+          <a href="https://x.com/AdilHassan1214" target="_blank" rel="noopener" title="Twitter/X"><i
+              class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.youtube.com/channel/UCzT4olXB1mfr2Dk6qhy0WEA" target="_blank" rel="noopener"
+            title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-field"><label>First Name</label><input type="text" id="fname" placeholder="Your first name"
+              required /></div>
+          <div class="form-field"><label>Last Name</label><input type="text" id="lname" placeholder="Your last name"
+              required /></div>
+        </div>
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-field">
+          <label>I need help with</label>
+          <select id="subject">
+            <option value="">— Select a service —</option>
+            <option>Full Stack Web Development</option>
+            <option>Brand Identity &amp; Graphic Design</option>
+            <option>UI / UX Design</option>
+            <option>Full Stack + Design (both)</option>
+            <option>API / Backend Development</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field"><label>Message</label><textarea id="message" rows="5"
+            placeholder="Tell me about your project…" required></textarea></div>
+        <button type="submit" class="form-submit">Send Message →</button>
+      </form>
+    </div>
+  </section>
+
+  <!--═══ FOOTER ═══-->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="f-logo-wrap">
+            <div class="f-logo">dev<em>&amp;</em>design</div>
+          </div>
+          <p>Full-stack developer and creative designer — building scalable systems, elegant interfaces, and memorable
+            brand identities. Available for freelance &amp; full-time.</p>
+          <a class="f-mail" href="mailto:hello@devanddesign.co">syedadilhassan06@gmail.com</a>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Full Stack Development</a></li>
+            <li><a href="#">Brand Identity Design</a></li>
+            <li><a href="#">UI / UX Design</a></li>
+            <li><a href="#">Apparel Graphics</a></li>
+            <li><a href="#">Design Systems</a></li>
+          </ul>
+        </div>
+        <!-- Footer apps — Dribbble and Figma removed, 6 real platforms -->
+        <div class="footer-apps">
+          <h4>Find Me On</h4>
+          <div class="apps-grid">
+            <a class="app-icon gh" href="https://github.com/adil-12-hassan" target="_blank" rel="noopener"><i
+                class="fa-brands fa-github"></i></a>
+            <a class="app-icon li" href="https://www.linkedin.com/in/adil-hassan-a08115325" target="_blank"
+              rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a class="app-icon be" href="https://www.behance.net/adilhassan19" target="_blank" rel="noopener"><i
+                class="fa-brands fa-behance"></i></a>
+            <a class="app-icon ig" href="https://www.instagram.com/adilhassan107/" target="_blank" rel="noopener"><i
+                class="fa-brands fa-instagram"></i></a>
+            <a class="app-icon tw" href="https://x.com/AdilHassan1214" target="_blank" rel="noopener"><i
+                class="fa-brands fa-x-twitter"></i></a>
+            <a class="app-icon yt" href="https://www.youtube.com/channel/UCzT4olXB1mfr2Dk6qhy0WEA" target="_blank"
+              rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 dev<span>&amp;</span>design Portfolio. Built with <span>♥</span>, caffeine, and too many Figma frames.
+        </p>
+        <div class="footer-bot-links">
+          <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
